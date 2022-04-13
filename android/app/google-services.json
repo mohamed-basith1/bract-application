@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "834151043738",
+    "project_id": "trackbus-cdda1",
+    "storage_bucket": "trackbus-cdda1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:834151043738:android:374ec5b49d4d649ad60523",
+        "android_client_info": {
+          "package_name": "com.ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "834151043738-uvpur07na2mtpdjnhl56gpitrepn26sl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPTRkj54KvYjf897q0ExM1c3KI7KZftus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "834151043738-uvpur07na2mtpdjnhl56gpitrepn26sl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
