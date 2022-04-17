@@ -4,7 +4,7 @@ import { NeuInput, NeuView } from 'react-native-neu-element';
 import { Color } from '../../constants/color';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Axios from '../../Api/index';
-// import Axios from 'axios';
+
 import { useNavigation } from '@react-navigation/native';
 
 const Signin = () => {

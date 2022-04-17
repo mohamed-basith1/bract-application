@@ -136,7 +136,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        vectorDrawables.useSupportLibrary = true
+        vectorDrawables.useSupportLibrary = true // <-- new add
         multiDexEnabled true  
     }
     splits {
@@ -201,11 +201,14 @@ android {
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
      implementation project(':react-native-fs')
+     implementation project(':rn-fetch-blob')   
      implementation 'com.android.support:multidex:2.0.1'
     
    implementation 'com.google.firebase:firebase-analytics:18.0.2'
     //noinspection GradleDynamicVersion
      implementation "com.facebook.react:react-native:+"  // From node_modules
+
+     //map ku ullathu
       implementation(project(':react-native-maps')){
        exclude group: 'com.google.android.gms', module: 'play-services-base'
        exclude group: 'com.google.android.gms', module: 'play-services-maps'

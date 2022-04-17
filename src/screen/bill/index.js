@@ -2,7 +2,6 @@ import { StyleSheet, Text, View, Pressable, Modal, Image, PermissionsAndroid } f
 import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Color } from '../../constants/color';
-
 import { useNavigation } from '@react-navigation/native';
 import { Size } from '../../constants/size';
 import ImagePicker from 'react-native-image-crop-picker';

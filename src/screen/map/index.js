@@ -1,14 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import {
-	View,
-	Text,
-	StyleSheet,
-	StatusBar,
-	Pressable,
-	Image,
-	PermissionsAndroid,
-	TouchableOpacity
-} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, Pressable, Image, PermissionsAndroid } from 'react-native';
+
 import { getDistance } from 'geolib';
 import { NeuView } from 'react-native-neu-element';
 import { Size } from '../../constants/size';
@@ -84,17 +76,12 @@ const Map = ({ route }) => {
 	const [ busplace, setBusplace ] = useState('');
 	const [ ourplace, setOurplace ] = useState('');
 	const { lattitudes, longitudes, userplace, busno } = route.params;
-	console.log('busno', busno);
+
 	const navigation = useNavigation();
 	const socket = io('https://bract.herokuapp.com/');
 	console.log('lattitude from home', lattitudes);
 	console.log('lattitude from here', ourcoords.coords.latitude);
-	// useEffect(
-	// 	() => {
-	// 		getpermisstion();
-	// 	},
-	// 	[ triger ]
-	// );
+
 	console.log(1);
 	//this for asking permisiion and get the user current location lag and lat
 
