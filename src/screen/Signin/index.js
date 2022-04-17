@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StatusBar, Dimensions, VirtualizedList, Pressable } from 'react-native';
+import { View, Text, StatusBar, Dimensions, Keyboard, Pressable, Image, ActivityIndicator } from 'react-native';
 import { NeuInput, NeuView } from 'react-native-neu-element';
 import { Color } from '../../constants/color';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Axios from '../../Api/index';
-
 import { useNavigation } from '@react-navigation/native';
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 const Signin = () => {
 	const { width, height } = Dimensions.get('window');
@@ -56,14 +56,16 @@ const Signin = () => {
 			}}
 		>
 			<StatusBar barStyle="dark-content" backgroundColor={'rgba(0,0,0,0)'} translucent />
-			<View>
+			<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} style={{ padding: 20 }}>
 				<View style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-					<Text style={{ fontSize: 30, color: Color.BLACK, fontWeight: 'bold' }}>Student App</Text>
+					<NeuView color={Color.WHITE} width={width / 3} height={width / 3} borderRadius={50} concave>
+						<Image source={require('../../Assets/bractlogo.png')} style={{ height: '95%', width: '95%' }} />
+					</NeuView>
 				</View>
-				<View style={{ margin: 65 }} />
+				<View style={{ margin: 45 }} />
 				<View style={{ display: 'flex', justifyContent: 'flex-start' }}>
 					<Text style={{ fontSize: 35, fontWeight: '600', color: Color.BLACK }}>Welcome</Text>
-					<Text style={{ fontSize: 15, color: Color.BLACK }}>Let's get started</Text>
+					<Text style={{ fontSize: 15, color: 'black' }}>Let's get started</Text>
 				</View>
 				<View style={{ margin: 15 }} />
 				<NeuInput
@@ -86,21 +88,34 @@ const Signin = () => {
 					color={Color.WHITE}
 				/>
 
-				<View style={{ margin: 35 }} />
+				<View style={{ margin: 55 }} />
 				<Pressable
 					style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
 					onPress={() => submit()}
 					disabled={submited}
 				>
-					<NeuView color={Color.WHITE} width={width / 2} height={height / 15} borderRadius={100}>
+					{/* <NeuView color={'#0DC366'} width={width / 2} height={height / 15} borderRadius={100}> */}
+					<View
+						style={{
+							width: width / 2,
+							height: height / 15,
+							borderRadius: 100,
+							backgroundColor: Color.BLACK,
+							justifyContent: 'center',
+							alignItems: 'center',
+							elevation: 5
+						}}
+					>
 						{!submited ? (
-							<Text style={{ fontSize: 25, fontWeight: '500', color: Color.BLACK }}>Sign-in</Text>
+							<Text style={{ fontSize: 16, fontWeight: '300', color: 'white' }}>Sign-in</Text>
 						) : (
-							<Text> loading</Text>
+							<ActivityIndicator color={Color.WHITE} />
 						)}
-					</NeuView>
+					</View>
+
+					{/* </NeuView> */}
 				</Pressable>
-			</View>
+			</TouchableWithoutFeedback>
 		</View>
 	);
 };

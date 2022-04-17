@@ -123,7 +123,7 @@ const Home = () => {
 					</Text>
 				</View>
 				<Pressable onPress={() => navigation.navigate('setting')}>
-					<NeuView color="#E3EDF7" height={40} width={40} borderRadius={100} concave>
+					<NeuView color={Color.WHITE} height={40} width={40} borderRadius={100} concave>
 						<Image source={require('../../Assets/avator1.png')} style={{ height: '80%', width: '80%' }} />
 					</NeuView>
 				</Pressable>
@@ -152,7 +152,7 @@ const Home = () => {
 					<Pressable onPress={() => navigation.navigate('percentage', { details: studentdetails })}>
 						<View>
 							<NeuView
-								color="#E3EDF7"
+								color={Color.WHITE}
 								height={Size.height / 4}
 								width={Size.width / 2.4}
 								borderRadius={30}
@@ -181,7 +181,7 @@ const Home = () => {
 					<Pressable onPress={() => navigation.navigate('result', { data: studentdetails })}>
 						<View>
 							<NeuView
-								color="#E3EDF7"
+								color={Color.WHITE}
 								height={Size.height / 7}
 								width={Size.width / 2.4}
 								borderRadius={30}
@@ -220,7 +220,7 @@ const Home = () => {
 					<Pressable onPress={() => navigation.navigate('circular', { data: studentdetails })}>
 						<View>
 							<NeuView
-								color="#E3EDF7"
+								color={Color.WHITE}
 								height={Size.height / 7}
 								width={Size.width / 2.4}
 								borderRadius={30}
@@ -249,7 +249,7 @@ const Home = () => {
 					<Pressable onPress={() => navigation.navigate('bill')}>
 						<View>
 							<NeuView
-								color="#E3EDF7"
+								color={Color.WHITE}
 								height={Size.height / 4}
 								width={Size.width / 2.4}
 								borderRadius={30}
@@ -295,7 +295,7 @@ const Home = () => {
 			>
 				<Pressable onPress={() => setOnline(true)}>
 					<NeuView
-						color="#E3EDF7"
+						color={Color.WHITE}
 						height={Size.height / 20}
 						width={Size.width / 4}
 						borderRadius={8}
@@ -310,7 +310,7 @@ const Home = () => {
 				</Pressable>
 				<Pressable onPress={() => setOnline(false)}>
 					<NeuView
-						color="#E3EDF7"
+						color={Color.WHITE}
 						height={Size.height / 20}
 						width={Size.width / 4}
 						borderRadius={8}
@@ -350,7 +350,7 @@ const Home = () => {
 								style={{
 									height: Size.height / 12,
 									width: Size.width / 1.2,
-									backgroundColor: '#E3EDF7'
+									backgroundColor: Color.WHITE
 								}}
 							>
 								<View
@@ -362,7 +362,7 @@ const Home = () => {
 										width: '90%'
 									}}
 								>
-									<NeuView color="#E3EDF7" height={50} width={50} borderRadius={100}>
+									<NeuView color={Color.WHITE} height={50} width={50} borderRadius={100}>
 										<Image
 											source={require('../../Assets/busicon.png')}
 											style={{ height: '60%', width: '60%' }}
@@ -402,7 +402,7 @@ const Home = () => {
 								style={{
 									height: Size.height / 12,
 									width: Size.width / 1.2,
-									backgroundColor: '#E3EDF7'
+									backgroundColor: Color.WHITE
 								}}
 							>
 								<View
@@ -414,7 +414,7 @@ const Home = () => {
 										width: '90%'
 									}}
 								>
-									<NeuView color="#E3EDF7" height={50} width={50} borderRadius={100}>
+									<NeuView color={Color.WHITE} height={50} width={50} borderRadius={100}>
 										<Image
 											source={require('../../Assets/busicon.png')}
 											style={{ height: '60%', width: '60%' }}

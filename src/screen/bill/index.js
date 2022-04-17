@@ -189,7 +189,7 @@ const Bill = () => {
 			>
 				<Pressable onPress={() => navigation.goBack()}>
 					<NeuView
-						color="#E3EDF7"
+						color={Color.WHITE}
 						height={Size.height / 22}
 						width={Size.height / 22}
 						borderRadius={100}
@@ -200,7 +200,7 @@ const Bill = () => {
 				</Pressable>
 				<Pressable onPress={() => setModels(true)}>
 					<NeuView
-						color="#E3EDF7"
+						color={Color.WHITE}
 						height={Size.height / 22}
 						width={Size.height / 22}
 						borderRadius={100}
@@ -226,7 +226,7 @@ const Bill = () => {
 			>
 				<Pressable onPress={() => tuitionclick()}>
 					<NeuView
-						color="#E3EDF7"
+						color={Color.WHITE}
 						height={Size.height / 20}
 						width={Size.width / 2.5}
 						borderRadius={8}
@@ -239,7 +239,7 @@ const Bill = () => {
 				</Pressable>
 				<Pressable onPress={() => examclick()}>
 					<NeuView
-						color="#E3EDF7"
+						color={Color.WHITE}
 						height={Size.height / 20}
 						width={Size.width / 2.5}
 						borderRadius={8}
@@ -266,7 +266,7 @@ const Bill = () => {
 						style={{
 							height: Size.height / 4,
 							width: Size.width / 1.1,
-							backgroundColor: '#E3EDF7',
+							backgroundColor: Color.WHITE,
 							elevation: 5,
 							display: 'flex',
 							justifyContent: 'center',
@@ -287,7 +287,7 @@ const Bill = () => {
 						>
 							<Pressable onPress={() => setModels(false)}>
 								<NeuView
-									color="#E3EDF7"
+									color={Color.WHITE}
 									height={Size.height / 25}
 									width={Size.height / 25}
 									borderRadius={100}
@@ -311,7 +311,7 @@ const Bill = () => {
 						>
 							<Pressable onPress={() => opencamera()}>
 								<NeuView
-									color="#E3EDF7"
+									color={Color.WHITE}
 									height={Size.height / 13}
 									width={Size.height / 13}
 									borderRadius={100}
@@ -324,7 +324,7 @@ const Bill = () => {
 							</Pressable>
 							<Pressable onPress={() => opengallery()}>
 								<NeuView
-									color="#E3EDF7"
+									color={Color.WHITE}
 									height={Size.height / 13}
 									width={Size.height / 13}
 									borderRadius={100}
@@ -354,7 +354,7 @@ const Bill = () => {
 					return (
 						<Pressable onPress={() => navigation.navigate('fullscreen', { image: file })}>
 							<NeuView
-								color="#E3EDF7"
+								color={Color.WHITE}
 								height={Size.height / 5.4}
 								width={Size.height / 5.4}
 								style={{ margin: 4 }}

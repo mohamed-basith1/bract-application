@@ -56,7 +56,7 @@ const Percentage = () => {
 					</Text>
 				</View>
 				<NeuView
-					color="#E3EDF7"
+					color={Color.WHITE}
 					height={Size.height / 3.4}
 					width={Size.width / 1.1}
 					borderRadius={50}
@@ -64,7 +64,7 @@ const Percentage = () => {
 				>
 					<View style={{ height: '100%', width: '100%', padding: 20, display: 'flex', flexDirection: 'row' }}>
 						<NeuView
-							color="#E3EDF7"
+							color={Color.WHITE}
 							height={Size.height / 4}
 							width={20}
 							borderRadius={50}
@@ -107,7 +107,7 @@ const Percentage = () => {
 					</View>
 				</NeuView>
 				<View style={{ margin: Size.height / 50, width: 20, height: 20 }} />
-				<NeuView color="#E3EDF7" height={Size.height / 10.4} width={Size.width / 1.1} borderRadius={50}>
+				<NeuView color={Color.WHITE} height={Size.height / 10.4} width={Size.width / 1.1} borderRadius={50}>
 					<View
 						style={{
 							display: 'flex',

@@ -1,12 +1,13 @@
 import { StyleSheet, Text, View, Pressable, Image } from 'react-native';
 import React from 'react';
 import { NeuView } from 'react-native-neu-element';
+import { Color } from '../constants/color';
 import { Size } from '../constants/size';
 const Backbutton = ({ action }) => {
 	return (
 		<Pressable onPress={() => action()}>
 			<NeuView
-				color="#E3EDF7"
+				color={Color.WHITE}
 				height={Size.height / 22}
 				width={Size.height / 22}
 				borderRadius={100}

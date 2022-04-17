@@ -30,7 +30,7 @@ const Circular = () => {
 							style={{ alignItems: 'center', padding: 10 }}
 						>
 							<NeuView
-								color="#E3EDF7"
+								color={Color.WHITE}
 								height={Size.height / 13}
 								width={Size.width / 1.2}
 								borderRadius={18}
