@@ -152,8 +152,13 @@ const Bill = () => {
 				files.map((a) => {
 					console.log(a.path, 'checking');
 					const filePath = a.path;
+					const filename = a.path.split('/');
+					const total = filename.length;
+					const imagename = filename[total - 1];
+					console.log(imagename, 'ethu file name');
 					RNFS.readFile(filePath, 'base64').then((final) => {
-						setImage((i) => [ ...i, final ]);
+						const imagewithname = { image: final, name: imagename };
+						setImage((i) => [ ...i, imagewithname ]);
 						// console.log(image, 'i am state store image');
 						// console.log(final);
 					});
@@ -352,7 +357,7 @@ const Bill = () => {
 			>
 				{image.map((file) => {
 					return (
-						<Pressable onPress={() => navigation.navigate('fullscreen', { image: file })}>
+						<Pressable onPress={() => navigation.navigate('fullscreen', { image: file, fees: online })}>
 							<NeuView
 								color={Color.WHITE}
 								height={Size.height / 5.4}
@@ -361,7 +366,7 @@ const Bill = () => {
 								borderRadius={10}
 							>
 								<Image
-									source={{ uri: `data:image/gif;base64,${file}` }}
+									source={{ uri: `data:image/gif;base64,${file.image}` }}
 									style={{ height: '95%', width: '95%', borderRadius: 10 }}
 								/>
 							</NeuView>
