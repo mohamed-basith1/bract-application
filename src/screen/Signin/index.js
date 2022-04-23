@@ -5,13 +5,16 @@ import { Color } from '../../constants/color';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Axios from '../../Api/index';
 import { useNavigation } from '@react-navigation/native';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { TextInput, TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import * as Animatable from 'react-native-animatable';
 const Signin = () => {
 	const { width, height } = Dimensions.get('window');
 	const [ rollno, setRollno ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ submited, setSubmited ] = useState(false);
+	const [ regerror, setRegerror ] = useState(true);
+	const [ passworderror, setPassworderror ] = useState(true);
+	const [ eye, setEye ] = useState(true);
 	const navigation = useNavigation();
 	const testing = async () => {
 		const get = await AsyncStorage.getItem('messagetoken');
@@ -21,27 +24,37 @@ const Signin = () => {
 	const submit = async () => {
 		console.log('hihihihihihihuhihih');
 		setSubmited(true);
+		setRegerror(true);
+		setPassworderror(true);
 		const data = { rollno: rollno.toUpperCase(), password: password.toUpperCase() };
 		console.log(data);
-		try {
-			const res = await Axios.post('/student/signin', data);
-			await AsyncStorage.setItem('auth-token-stu', res.data);
-			await AsyncStorage.setItem('student-rollno', rollno.toUpperCase());
-			const msgtoken = await AsyncStorage.getItem('messagetoken');
-			console.log('succesfull');
-			console.log(res.data);
-			if (res.status === 200) {
-				const msgdata = { rollno: rollno.toUpperCase(), messagetoken: msgtoken };
-				console.log(msgdata);
-				const ress = await Axios.put('/student/changemsgtoken', msgdata).then((ress) => {
-					console.log(ress.status, 'ethu ulla succesfully message uploaded');
-					navigation.replace('mainstack');
-				});
+
+		const res = await Axios.post('/student/signin', data).catch((e) => {
+			if (e == 'Error: Request failed with status code 400') {
+				console.log('i ma eroore');
+				setRegerror(false);
+				setSubmited(false);
 			}
-		} catch (error) {
-			console.log('ethuthan');
-			console.log(error);
-			setSubmited(false);
+			if (e == 'Error: Request failed with status code 404') {
+				console.log('password errror');
+				setPassworderror(false);
+				setSubmited(false);
+			}
+		});
+		await AsyncStorage.setItem('auth-token-stu', res.data);
+		await AsyncStorage.setItem('student-rollno', rollno.toUpperCase());
+		const msgtoken = await AsyncStorage.getItem('messagetoken');
+		console.log('succesfull');
+		console.log(res.data, 'staus ethu varaucthu');
+		console.log(res.status, 'response status ----');
+
+		if (res.status === 200) {
+			const msgdata = { rollno: rollno.toUpperCase(), messagetoken: msgtoken };
+			console.log(msgdata);
+			const ress = await Axios.put('/student/changemsgtoken', msgdata).then((ress) => {
+				console.log(ress.status, 'ethu ulla succesfully message uploaded');
+				navigation.replace('mainstack');
+			});
 		}
 	};
 
@@ -87,19 +100,47 @@ const Signin = () => {
 						color={Color.WHITE}
 					/>
 				</Animatable.View>
+				{!regerror && <Text style={{ color: 'red', padding: 10 }}>Student is not found</Text>}
+
 				<View style={{ margin: 15 }} />
 				<Animatable.View animation="zoomIn" delay={700}>
-					<NeuInput
-						onChangeText={setPassword}
-						value={password}
-						placeholder="Password"
-						width={width / 1.2}
-						height={height / 13}
-						borderRadius={100}
-						color={Color.WHITE}
-					/>
+					<NeuView width={width / 1.2} height={height / 13} borderRadius={100} color={Color.WHITE} inset>
+						<View
+							style={{
+								width: '90%',
+								alignItems: 'center',
+								justifyContent: 'space-between',
+								display: 'flex',
+								flexDirection: 'row'
+							}}
+						>
+							<TextInput
+								secureTextEntry={eye}
+								onChangeText={setPassword}
+								value={password}
+								placeholder="Password"
+								style={{ flex: 1 }}
+							/>
+							<TouchableOpacity
+								style={{ height: width / 20, width: width / 20 }}
+								onPress={() => setEye(!eye)}
+							>
+								{!eye ? (
+									<Image
+										source={require('../../Assets/view.png')}
+										style={{ height: '100%', width: '100%' }}
+									/>
+								) : (
+									<Image
+										source={require('../../Assets/hidden.png')}
+										style={{ height: '100%', width: '100%' }}
+									/>
+								)}
+							</TouchableOpacity>
+						</View>
+					</NeuView>
 				</Animatable.View>
-
+				{!passworderror && <Text style={{ color: 'red', padding: 10 }}>Check your password</Text>}
 				<View style={{ margin: 55 }} />
 				<Pressable
 					style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}

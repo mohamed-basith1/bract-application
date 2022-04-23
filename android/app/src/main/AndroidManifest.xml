@@ -20,6 +20,10 @@
       <meta-data
      android:name="com.google.android.geo.API_KEY"
      android:value="AIzaSyCcNEVE0yA1ZPRWiAAOztS3WMOjConOWCk"/>
+     <meta-data
+      android:name="com.google.firebase.messaging.default_notification_icon"
+       android:resource="@drawable/ic_stat_ic_notification" />
+ 
      
  <uses-library android:name="org.apache.http.legacy" android:required="false"/>
       <activity

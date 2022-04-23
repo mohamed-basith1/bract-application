@@ -1,15 +1,17 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import RNFetchBlob from 'rn-fetch-blob';
+import { useNavigation } from '@react-navigation/native';
 
 const Fullscreen = ({ route }) => {
 	const { image, fees } = route.params;
+	const navigate = useNavigation();
 	console.log(image);
 	const deleteclick = () => {
 		console.log('delete clicked ');
 		const filenamewithstate = fees ? 'tuitionfees' : 'examfees';
 		const folderDir = `/storage/emulated/0/Android/obb/com.pristimage.bas/${filenamewithstate}/${image.name}`;
-		RNFetchBlob.fs.unlink(folderDir).then((res) => console.log('succesfully deleted'));
+		RNFetchBlob.fs.unlink(folderDir).then((res) => navigate.navigate('home'));
 	};
 	return (
 		<View

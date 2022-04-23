@@ -5,3 +5,6 @@ const Instance = Axios.create({
 });
 
 export default Instance;
+
+//main api
+//	baseURL: 'https://bract.herokuapp.com/'
