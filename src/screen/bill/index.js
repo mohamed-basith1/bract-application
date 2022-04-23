@@ -17,6 +17,7 @@ const Bill = () => {
 	const [ image, setImage ] = useState([]);
 	const [ success, setSuccess ] = useState(true);
 	const navigation = useNavigation();
+
 	const { height, width } = Dimensions.get('window');
 
 	useEffect(
@@ -133,16 +134,6 @@ const Bill = () => {
 	};
 
 	const scangallary = () => {
-		// RNFetchBlob.fs.readStream('/storage/emulated/0/Android/obb/com.pristimage.bas', 'base64').then((data) => {
-		// 	console.log(data);
-		// });
-		// RNFetchBlob.fs
-		// 	.readFile('/storage/emulated/0/Android/obb/com.pristimage.bas/47325ade-4875-4a24-9e0a-b2011195fe43.jpg')
-		// 	.then((data) => {
-		// 		console.log(data);
-		// 	});
-		// const filePath = '/storage/emulated/0/Android/obb/com.pristimage.bas/47325ade-4875-4a24-9e0a-b2011195fe43.jpg';
-		// RNFS.readFile(filePath, 'base64')
 		const filenamewithstate = online ? 'tuitionfees' : 'examfees';
 		const dirpath = `/storage/emulated/0/Android/obb/com.pristimage.bas/${filenamewithstate}`;
 		RNFS.readDir(dirpath)
@@ -350,7 +341,6 @@ const Bill = () => {
 					flex: 1,
 					display: 'flex',
 					flexDirection: 'row',
-
 					flexWrap: 'wrap',
 					justifyContent: 'center'
 				}}
